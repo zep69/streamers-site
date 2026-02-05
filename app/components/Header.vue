@@ -18,6 +18,9 @@
     border: thin solid var(--secondary-color);
     background-color: var(--bg-color-secondary);
     border-radius: 15px;
+    -webkit-box-shadow: 4px 4px 15px 0px var(--primary-color);
+    -moz-box-shadow: 4px 4px 15px 0px var(--primary-color);
+    box-shadow: 4px 4px 15px 0px var(--primary-color);
     &--btn-row  {
         display: flex;
         justify-content:space-between;
