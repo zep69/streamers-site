@@ -7,7 +7,7 @@
             <div class="btn-wrapper">
                 <button class="btn-group btn-group--start">Главная</button>
                 <button class="btn-group">О проекте</button>
-                <button class="btn-group btn-group--end">Войти</button>
+                <button class="btn-group btn-group--end" @click="$router.push('/login')">Войти</button>
             </div>
         </div>
     </div>

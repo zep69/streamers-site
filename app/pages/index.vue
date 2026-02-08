@@ -1,51 +1,101 @@
 <template>
-    <div style="margin-top: 20px;padding-left: 20px;padding-right: 20px;">
-        <Header />
+    <div style="margin-top: 20px;padding-left: 20px;padding-right: 20px;" >
+        <Header class="head"/>
         <div class="body-main">
-            <div style="display:  flex; justify-content: start;">
-                <h2 class="box-h">Добро пожаловать на сайт!</h2>
-                <div class="box-s" style="width: 400px;margin-left: 10px;">
-                    <span>Сайтик для интеграции с Twitch, даст вам возможность взаимодействовать с трансляцией</span>
+            <div class="hero"">
+                <div class="hero-inner">
+                  <h2 class="box-h">Добро пожаловать на сайт!</h2>
+                  <span class="box-s">Сайт для интеграции с Twitch, даст зрителям возможность взаимодействовать с трансляцией стримера</span>
                 </div>
+                <div>
+                  <div style="margin: 0 0 0 50px;" class="img-wrapper">
+                    <img src="../assets/static/photo_2025-11-24_12-49-45.jpg" @click="changeImg(true)"  height="700" class="img-main layer layer--2">
+                    <img src="../assets/static/photo_2025-11-24_12-50-01.jpg" @click="changeImg(false)" height="700" class="img-main layer layer--1">
+                  </div>
+                </div>
+                
             </div>
         </div>
-        <section>
-            <div class="fade-up" style="color: var(--text-color-secondary);font-size: 50px;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
-            <div class="fade-up" style="color: var(--text-color-secondary);font-size: 50px;">
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in tincidunt enim. Sed sit amet libero iaculis, aliquet metus eu, tempus tellus. Etiam nec urna purus. Cras facilisis tristique lorem sagittis tincidunt. Nulla tempor purus at dui consectetur, in pellentesque lectus vestibulum. Morbi vitae imperdiet erat. Etiam nec vulputate nulla, nec interdum nisl.
-
-In molestie erat ut turpis consequat, in ultricies nulla faucibus. Cras nec commodo justo. Suspendisse nisl dui, accumsan sit amet egestas at, consectetur sit amet lacus. Praesent id purus magna. Nam id magna gravida nulla condimentum semper a ut metus. Donec cursus, turpis ullamcorper posuere ornare, nunc lacus tristique nulla, nec pharetra arcu velit id ipsum. Nullam finibus mauris nec purus porttitor viverra vitae nec tortor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum facilisis et felis non aliquet. Pellentesque aliquam arcu ac leo euismod vestibulum. Donec vestibulum pulvinar sapien sit amet sodales. Sed non consequat dolor, at rhoncus odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi dictum odio tortor, at facilisis mi commodo vitae. Mauris tristique velit dolor, ut scelerisque ligula elementum non.
-
-Duis eu facilisis massa. Vestibulum finibus ex id ullamcorper fringilla. Etiam malesuada egestas augue, in condimentum quam elementum ac. Sed pulvinar ipsum eros, sit amet venenatis erat eleifend et. Praesent id leo sit amet sem finibus finibus. Pellentesque turpis urna, consequat eget ligula vel, porta porttitor sem. Vestibulum malesuada venenatis eros, nec mollis velit cursus eget. Curabitur pretium nibh eu libero malesuada, quis pretium magna faucibus. Donec lacinia consectetur risus ut pellentesque. Cras dictum, massa ac maximus fringilla, tortor libero hendrerit ex, ac sodales enim velit et ante. Sed odio odio, varius et bibendum ac, hendrerit at metus. In eleifend tempus justo, id efficitur nunc tincidunt sed. Aenean sed volutpat ligula. Nulla rhoncus enim a ultricies mattis. Ut dignissim feugiat scelerisque. Donec a sodales tortor. </div>
-            <div class="fade-up" style="color: var(--text-color-secondary);font-size: 50px;">freestar
-freestar
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in tincidunt enim. Sed sit amet libero iaculis, aliquet metus eu, tempus tellus. Etiam nec urna purus. Cras facilisis tristique lorem sagittis tincidunt. Nulla tempor purus at dui consectetur, in pellentesque lectus vestibulum. Morbi vitae imperdiet erat. Etiam nec vulputate nulla, nec interdum nisl.
-
-In molestie erat ut turpis consequat, in ultricies nulla faucibus. Cras nec commodo justo. Suspendisse nisl dui, accumsan sit amet egestas at, consectetur sit amet lacus. Praesent id purus magna. Nam id magna gravida nulla condimentum semper a ut metus. Donec cursus, turpis ullamcorper posuere ornare, nunc lacus tristique nulla, nec pharetra arcu velit id ipsum. Nullam finibus mauris nec purus porttitor viverra vitae nec tortor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum facilisis et felis non aliquet. Pellentesque aliquam arcu ac leo euismod vestibulum. Donec vestibulum pulvinar sapien sit amet sodales. Sed non consequat dolor, at rhoncus odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi dictum odio tortor, at facilisis mi commodo vitae. Mauris tristique velit dolor, ut scelerisque ligula elementum non.
-
-Duis eu facilisis massa. Vestibulum finibus ex id ullamcorper fringilla. Etiam malesuada egestas augue, in condimentum quam elementum ac. Sed pulvinar ipsum eros, sit amet venenatis erat eleifend et. Praesent id leo sit amet sem finibus finibus. Pellentesque turpis urna, consequat eget ligula vel, porta porttitor sem. Vestibulum malesuada venenatis eros, nec mollis velit cursus eget. Curabitur pretium nibh eu libero malesuada, quis pretium magna faucibus. Donec lacinia consectetur risus ut pellentesque. Cras dictum, massa ac maximus fringilla, tortor libero hendrerit ex, ac sodales enim velit et ante. Sed odio odio, varius et bibendum ac, hendrerit at metus. In eleifend tempus justo, id efficitur nunc tincidunt sed. Aenean sed volutpat ligula. Nulla rhoncus enim a ultricies mattis. Ut dignissim feugiat scelerisque. Donec a sodales tortor.
-
-Ut accumsan lorem eget blandit elementum. Aliquam dictum nulla eu mollis venenatis. Vivamus a sem eros. Ut rutrum magna nec erat tristique, nec consectetur tellus luctus. Duis sit amet lectus in elit venenatis viverra eget vel augue. Sed eget felis massa. Nullam vehicula, justo a lacinia tristique, leo augue fermentum diam, id mollis sapien mauris et ante.
-
-Suspendisse posuere augue id lobortis commodo. Phasellus ultricies, lorem ut viverra consectetur, enim tellus malesuada enim, sit amet tincidunt enim dui vel libero. Quisque vitae pellentesque velit, a scelerisque metus. Donec viverra velit non arcu efficitur pulvinar. Nulla ac diam et tellus lobortis gravida sed sit amet nibh. Nam dui felis, convallis sed efficitur ac, ornare et nunc. Pellentesque ac interdum massa, quis commodo purus. Quisque a scelerisque ante, et bibendum mauris. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus fringilla tortor rhoncus odio tincidunt, ac eleifend augue dictum. Nullam tempus eget est non ultricies. Pellentesque erat sem, egestas in libero eget, congue tristique orci. Nullam maximus congue pretium. </div>
-        </section>
     </div>
 </template>
 
 <script setup lang="ts">
 import { onMounted } from 'vue'
 
+const view = ref<boolean>(false)
+
 const { $gsap } = useNuxtApp()
 
-onMounted(() => {
+function changeImg(type: boolean): void{
+  if(!type){
+      $gsap.to('.layer--1', {
+      zIndex:3,
+      duration:1,
+      x:-80,
+      y:-40,
+      scale:1,
+      ease:'power2.inOut'
+    })
+    $gsap.to('.layer--2', {
+      zIndex:1,
+      duration:1,
+      x:80,
+      y:40,
+      scale:0.95,
+      ease:'power2.inOut'
+    })
+    
+  }else{
+      $gsap.to('.layer--2', {
+      zIndex:3,
+      duration:1,
+      x:0,
+      y:0,
+      scale:1,
+      ease:'power2.inOut'
+    })
+    $gsap.to('.layer--1', {
+      zIndex:1,
+      duration:1,
+      x:0,
+      y:0,
+      scale:0.95,
+      ease:'power2.inOut',
+
+    })
+  
+}
+}
+
+onMounted(async() => {
+  $gsap.set('.fade-up', {
+    opacity: 0,
+    y:40
+  })
+   $gsap.set('.box-h', {
+    opacity: 0,
+    x: -100,
+  })
+   $gsap.set('.box-s', {
+    opacity: 0,
+    x: 100,
+  })
+ $gsap.set('.head', {
+    opacity: 0,
+    y: -100,
+  })
+  $gsap.set('.img-main', {
+    x:1200,
+    opacity:0
+  })
+
+
   $gsap.utils.toArray<HTMLElement>('.fade-up').forEach(el => {
-    $gsap.from(el, {
-      y: 40,
-      opacity: 0,
+    $gsap.to(el, {
+      y: 0,
+      opacity: 1,
       duration: 0.6,
-      ease: 'power2.out',
+      ease: 'power2.inOut',
       scrollTrigger: {
         trigger: el,
         start: 'top 85%',
@@ -54,21 +104,34 @@ onMounted(() => {
     })
   })
   const tl = $gsap.timeline()
-  tl.from('.box-h', {
-    x: -100,
-    opacity: 0,
+  tl.to('.head', {
+    y:0,
+    opacity:1,
     duration: 1,
-    ease: 'power2.out'
-  }).from('.box-s', {
-    x: 100,
-    opacity: 0,
+    ease: 'power2.inOut'
+  })
+  .to('.box-h', {
+    x: 0,
+    opacity: 1,
     duration: 1,
-    ease: 'power2.out'
+    ease: 'power2.inOut'
+  }).to('.box-s', {
+    x: 0,
+    opacity: 1,
+    duration: 1,
+    ease: 'power2.inOut'
   }, '-=0.4')
+  .to('.img-main',{
+    x: 0,
+    opacity: 1,
+    duration: 1,
+    ease: 'power2.inOut'
+  },'<')
+ 
 })
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .body-main{
     padding: 10px 20px 10px 20px;
 }
@@ -79,5 +142,41 @@ onMounted(() => {
 span{
     color: var(--text-color-secondary);
     font-size: 18px;
+}
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 100%;
+}
+
+.hero-inner {
+  width: 100%;
+  max-width: 400px;
+}
+
+.img-wrapper {
+  position: relative;
+}
+
+.layer {
+  position: relative;
+  &--1 {
+    position: absolute;
+    z-index: 1;
+    top: 40px;
+    left: 80px;
+    transform: scale(0.95);
+  }
+  &--2 {
+    z-index: 2;
+    -webkit-box-shadow: 4px 4px 8px 0px rgba(50, 51, 52, 0.2);
+    -moz-box-shadow: 4px 4px 8px 0px rgba(50, 51, 52, 0.2);
+    box-shadow: 4px 4px 8px 0px rgba(50, 51, 52, 0.2);
+
+  }
+}
+.img-main {
+  border-radius: 60px;
 }
 </style>
