@@ -9,10 +9,10 @@
             </button>
         </div>
     </div>
-    <div class="nav-drawer" >
+    <div class="nav-drawer" @click:outside="openDrawer">
         <div>
             <div class="nav-drawer--list" v-for="item in pages">
-                <button class="nav-drawer--list--btn">
+                <button class="nav-drawer--list--btn" @click="$router.push(item.route);openDrawer()">
                     <BaseIcon :icon="item.icon" size="24" style="margin-right: 10px;"/>
                     {{ item.name }}
                 </button>
@@ -77,6 +77,7 @@
 
 <style scoped lang="scss">
 .nav-drawer {
+    position: absolute;
     height: 400px;
     background-color: var(--bg-color-secondary);
     width: 200px;
