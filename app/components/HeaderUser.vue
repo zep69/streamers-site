@@ -45,6 +45,11 @@
         icon: 'mdiAccount'
     },
     {
+        name:'Дэш',
+        route: '/user',
+        icon: 'mdiViewDashboard'
+    },
+    {
         name:'Подписки',
         route:'/user/subs',
         icon:'mdiPlaylistCheck'   
@@ -106,7 +111,9 @@
             transition: 500ms;
         }
     }
-   
+    -webkit-box-shadow: 4px 4px 10px 10px rgba(13, 13, 13, 0.2);
+    -moz-box-shadow: 4px 4px 10px 10px rgba(13, 13, 13, 0.2);
+    box-shadow: 4px 4px 10px 10px rgba(13, 13, 13, 0.2);
 }
 .header-user {
     background-color: var(--bg-color-secondary);
@@ -122,6 +129,9 @@
         justify-content: space-between;
         align-items: center;
     }
+    -webkit-box-shadow: 4px 4px 10px 10px rgba(13, 13, 13, 0.2);
+    -moz-box-shadow: 4px 4px 10px 10px rgba(13, 13, 13, 0.2);
+    box-shadow: 4px 4px 10px 10px rgba(13, 13, 13, 0.2);
 }
 .menuBtn {
     background-color: none;
