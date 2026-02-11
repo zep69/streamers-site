@@ -70,6 +70,27 @@
                         </div>
                     </div>
                 </div>
+                <div class="profile-root--card-info--posts-streamers">
+                    <span>Последние посты стримеров: </span>
+                    <div class="profile-root--card-info--posts-streamers--body">
+                        <div v-for="item in posts" class="profile-root--card-info--posts-streamers--item">
+                            <div class="profile-root--card-info--posts-streamers--item--streamer">
+                                <img :src="item.streamer.avatar" height="30" alt="" class="profile-root--card-info--posts-streamers--item--streamer--avatar">
+                                <span class="profile-root--card-info--posts-streamers--item--streamer--name">{{ item.streamer.name }}</span>
+                            </div>
+                            <div class="profile-root--card-info--posts-streamers--item--label">
+                                {{ item.label }}
+                            </div>
+                            <div class="profile-root--card-info--posts-streamers--item--body">
+                                {{ item.text }}
+                            </div>
+                            <div class="profile-root--card-info--posts-streamers--item--date">
+                                {{ item.date }}
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
             </div>
         </div>
         
@@ -77,6 +98,67 @@
 </template>
 
 <script setup lang="ts">
+    type Post = {
+        label : string,
+        text : string,
+        date : string,
+        streamer : Streamer,
+    }
+
+    const posts : Post[] = [
+        {
+            label : 'Pidarasi stream live',
+            text : 'stream is live, go piski sosiski',
+            date: '11.02.2026',
+            streamer : {
+                name: 'Streamer1',
+                avatar: 'https://s3.twcstorage.ru/cd58536-mhand-bucket/crm/22-223863_no-avatar-png-circle-transparent-png.png',
+                id: 1
+            }
+        },
+        {
+            label : 'Nullam convallis',
+            text : 'stream is live, go piski sosiski',
+            date: '11.02.2026',
+            streamer : {
+                name: 'Streamer1',
+                avatar: 'https://s3.twcstorage.ru/cd58536-mhand-bucket/crm/22-223863_no-avatar-png-circle-transparent-png.png',
+                id: 1
+            }
+        },
+        {
+            label : 'Pidarasi stream live',
+            text : 'stream is live, go piski sosiski',
+            date: '11.02.2026',
+            streamer : {
+                name: 'Streamer1',
+                avatar: 'https://s3.twcstorage.ru/cd58536-mhand-bucket/crm/22-223863_no-avatar-png-circle-transparent-png.png',
+                id: 1
+            }
+        },
+        {
+            label : 'Pidarasi stream live',
+            text : 'Maecenas consequat est posuere sodales eleifend. Aenean mattis neque in neque finibus dapibus. Ut commodo hendrerit ipsum sit amet pretium. Proin quis semper tellus, a pharetra nisl. Curabitur vestibulum, sem tempus luctus congue, massa felis posuere risus, id dapibus nulla justo ut nulla. ',
+            date: '11.02.2026',
+            streamer : {
+                name: 'Streamer1',
+                avatar: 'https://s3.twcstorage.ru/cd58536-mhand-bucket/crm/22-223863_no-avatar-png-circle-transparent-png.png',
+                id: 1
+            }
+        },
+        {
+            label : 'Phasellus eget purus eros.',
+            text : ' Nunc orci dolor, dictum a mauris ac, condimentum dignissim nibh. Donec pretium urna nisi, nec posuere nunc tempor quis. Integer eleifend rhoncus tellus. Vestibulum sed tincidunt nulla, semper aliquet sapien. Praesent varius ante augue, vitae suscipit urna semper non. Pellentesque luctus molestie dolor, in tincidunt ipsum dictum vel. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. ',
+            date: '01.02.2026',
+            streamer : {
+                name: 'Streamer1',
+                avatar: 'https://s3.twcstorage.ru/cd58536-mhand-bucket/crm/22-223863_no-avatar-png-circle-transparent-png.png',
+                id: 1
+            }
+        },
+    ]
+
+
     type Activity = {
         type: string,
         streamerName: string,
@@ -224,9 +306,51 @@
         box-shadow: 4px 4px 10px 10px rgba(13, 13, 13, 0.2);
         display: flex;
         justify-content: start;
+        &--posts-streamers {
+            color: var(--primary-color);
+            margin-left: 20px;
+            height: 100%;
+
+            &--body {
+                height: 97%;
+                overflow: scroll;
+                margin-bottom: 10px;
+            }
+            &--item {
+                padding: 10px;
+                background-color: rgb(29, 23, 32);
+                border-radius: 10px;
+                margin-top: 10px;
+                &--streamer {
+                    display: flex;
+                    justify-content: start;
+                    &--avatar {
+                        border-radius: 50%;
+                    }
+                    &--name {
+                        color: var(--primary-color);
+                        margin-left: 10px;
+                    }
+                }
+                &--label {
+                    padding: 10px;
+                }
+                &--body {
+                    color: var(--text-color);
+                    padding: 10px;
+                }
+                &--date {
+                    display: flex;
+                    justify-content: end;
+                    font-size: 10px;
+                    color: var(--text-color-secondary);
+                }
+            }
+        }
         &--last-activity {
             color: var(--primary-color);
-            width: 400px;
+            width: 500px;
+            min-width: 500px;
             margin-left: 20px;
             &--item {
                 display: flex; 
@@ -251,6 +375,7 @@
         &--subscribe {
             color: var(--primary-color);
             width: 200px;
+            min-width: 200px;
             &--item {
                 display: flex;
                 align-items: center;
