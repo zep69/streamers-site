@@ -45,12 +45,121 @@
                 </div>
             </div>
         </div>
+        <div style="margin-left: 10px;width: 100%;">
+            <h2>Инфо</h2>
+            <div class="profile-root--card-info">
+                <div class="profile-root--card-info--subscribe">
+                    <span>Отслеживаемые каналы: </span>
+                    <div class="profile-root--card-info--subscribe--item" v-for="item in streamers" :key="item.id">
+                        <img :src="item.avatar" alt="" height="30px">
+                        <span>{{ item.name }}</span>
+                    </div>
+                </div>
+                <div class="profile-root--card-info--last-activity">
+                    <span>Последняя активность:</span>
+                    <div v-for="item in activities" :key="item.date" style="margin-top: 10px;">
+                        <div class="profile-root--card-info--last-activity--item">
+                            <div>
+                                <span class="profile-root--card-info--last-activity--item--date">{{ formDate(item.date) }}</span>
+                                <span>{{ item.streamerName }}</span>
+                               
+                                <span class="profile-root--card-info--last-activity--item--name">{{ item.type }}</span>
+                            </div>
+                            
+                            <span>{{ item.sum }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         
     </div>
 </template>
 
 <script setup lang="ts">
-    
+    type Activity = {
+        type: string,
+        streamerName: string,
+        date: string,
+        sum: number,
+    }
+
+    function formDate(date:string): string{
+        const dateTemp = new Date(date)
+        return dateTemp.toLocaleDateString('ru-RU')
+    }
+        
+        
+        
+        
+        const activities: Activity[] = [
+            {
+                type: 'Сообщение на экран',
+                streamerName: 'Streamer1',
+                date: '12.06.2024 12:00',
+                sum: -100
+            },
+            {
+                type: 'Перелив',
+                streamerName: 'Streamer2',
+                date: '11.06.2024 18:00',
+                sum: +200
+            },
+            {
+                type: 'СВО',
+                streamerName: 'Streamer2',
+                date: '11.06.2024 18:00',
+                sum: -200
+            },
+            {
+                type: 'Гамба',
+                streamerName: 'Streamer3',
+                date: '10.06.2024 20:00',
+                sum: -5000
+            },
+            {
+                type: 'Гамба',
+                streamerName: 'Streamer3',
+                date: '10.06.2024 18:00',
+                sum: -50
+            },
+            {
+                type: 'Гамба',
+                streamerName: 'Streamer3',
+                date: '10.06.2024 16:00',
+                sum: -50
+            },
+            {
+                type: 'Гамба',
+                streamerName: 'Streamer3',
+                date: '10.06.2024 20:00',
+                sum: -50
+            },
+    ]
+
+    type Streamer = {
+        name : string,
+        avatar: string,
+        id: number,
+    }
+
+    const streamers: Streamer[] = [
+        {
+            name: 'Streamer1',
+            avatar: 'https://s3.twcstorage.ru/cd58536-mhand-bucket/crm/22-223863_no-avatar-png-circle-transparent-png.png',
+            id: 1
+        },
+        {
+            name: 'Streamer2',
+            avatar: 'https://s3.twcstorage.ru/cd58536-mhand-bucket/crm/22-223863_no-avatar-png-circle-transparent-png.png',
+            id: 2
+        },
+        {
+            name: 'Streamer3',
+            avatar: 'https://s3.twcstorage.ru/cd58536-mhand-bucket/crm/22-223863_no-avatar-png-circle-transparent-png.png',
+            id: 3
+        },
+    ]
 </script>
 
 <style scoped lang="scss">
@@ -103,7 +212,68 @@
 .profile-root {
     padding: 10px;
     display: flex;
-    
+    &--card-info {
+        padding: 20px;
+        margin-top: 10px;
+        height: 600px;
+        width: 100%;
+        border-radius: 20px;
+        background-color: var(--bg-color-secondary);
+        -webkit-box-shadow: 4px 4px 10px 10px rgba(13, 13, 13, 0.2);
+        -moz-box-shadow: 4px 4px 10px 10px rgba(13, 13, 13, 0.2);
+        box-shadow: 4px 4px 10px 10px rgba(13, 13, 13, 0.2);
+        display: flex;
+        justify-content: start;
+        &--last-activity {
+            color: var(--primary-color);
+            width: 400px;
+            margin-left: 20px;
+            &--item {
+                display: flex; 
+                justify-content: space-between;
+                padding: 10px;
+                background-color: rgb(29, 23, 32);
+                border-radius: 10px;
+                &--name {
+                    color: var(--text-color);
+                    margin-left: 5px;
+                }
+                &--date {
+                    color: var(--text-color-secondary);
+                    margin-right: 5px;
+                }
+                &:hover {
+                    background-color: rgb(45, 35, 50);
+                    cursor: pointer;
+                }
+            }
+        }
+        &--subscribe {
+            color: var(--primary-color);
+            width: 200px;
+            &--item {
+                display: flex;
+                align-items: center;
+                margin-top: 10px;
+                padding: 10px;
+                background-color: rgb(29, 23, 32);
+                border-radius: 10px;
+                transition: 500ms;
+                img {
+                    border-radius: 50%;
+                    margin-right: 10px;
+                }
+                span {
+                    color: var(--text-color);
+                    margin-left: 10px;
+                }
+                &:hover {
+                    background-color: rgb(45, 35, 50);
+                    cursor: pointer;
+                }
+            }
+        }
+    }
     &--card-profile {
         margin-top: 10px;
         height: 600px;
