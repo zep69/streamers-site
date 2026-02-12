@@ -50,12 +50,7 @@
         icon: 'mdiViewDashboard'
     },
     {
-        name:'Подписки',
-        route:'/user/subs',
-        icon:'mdiPlaylistCheck'   
-    },
-    {
-        name:'Все стримеры',
+        name:'Стримеры',
         route :'/user/streamers',
         icon: 'mdiTwitch'
     }
