@@ -58,3 +58,16 @@ h2{
   opacity: 1;
   transform: scale(1) translateY(0);
 }
+.v-disabled-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+
+  background: rgba(255, 255, 255, 0.2);
+
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  transition: backdrop-filter 0.2s ease, background 0.2s ease;
+}
