@@ -7,7 +7,27 @@
             <button v-else class="card-streamer--subscribed">Вы уже подписаны</button>
         </div>
         <div class="card-activity">
-            <h2>Ваш баланс</h2>
+            <h2>Ваш баланс: {{ balance }} {{ streamer.balanceName }}(ов)</h2>
+            <br>
+            <div>
+                <h2>Модули:</h2>
+                <div class="card-activity--modules">
+                    <div v-for="item in streamer.modules" class="card-activity--modules--item">
+                        <div class="card-activity--modules--item--header">
+                            <span>{{ item.name }}</span>
+                        </div>
+                        <div class="card-activity--modules--item--description">
+                            {{ item.description }}
+                        </div>
+                        <div class="card-activity--modules--item--actives">
+                            <button>
+                                Взаимодействовать
+                            </button>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -15,6 +35,8 @@
 <script setup lang="ts">
     const route = useRoute()
     const id = ref<string>('')
+
+    const balance = ref<number>(3122)
 
     type Streamer = {
         name: string,
@@ -24,7 +46,7 @@
         status: 'online' | 'offline',
         avatar?: string,
         description?: string,
-        modules: string[],
+        modules: any[],
         lastStream?: Date,
         isSubscribed?: boolean,
         balanceName?: string,
@@ -37,10 +59,39 @@
         status: 'online',
         avatar: 'https://s3.twcstorage.ru/cd58536-mhand-bucket/crm/22-223863_no-avatar-png-circle-transparent-png.png',
         description: 'Описание стримера 1 фдыловфлыодв длфыов длфыовдло фырвдлофырвд лофрывд лофывдлофрывдлоф ыдлфоыв дфлоывр дфлоырвд лофрвд лофрывдлофрывдлфоыврдлор',
-        modules: ['Стикеры', 'Голосовые сообщения', 'Рулетка'],
+        modules: [
+            {
+                name: 'Стикеры',
+                description: 'Отправить стикер стримеру'
+            },
+            {
+                name: 'Голосовые сообщения',
+                description: 'Отправить голосовое сообщение'
+            },
+            {
+                name: 'Рулетка',
+                description: 'Прокрутить рулетку'
+            },
+            {
+                name: 'Гамба',
+                description: "Let's go gambling!"
+            },
+            {
+                name: 'Сообщения на экране',
+                description: 'А-ля донат, но не донат'
+            },
+            {
+                name: 'Мемы',
+                description: 'Отправить мем'
+            },
+            {
+                name: 'СВО',
+                description: 'Устроить стримеру СВО!ГОЙДА!ПЕРЕМОГА!'
+            },
+        ],
         lastStream: new Date('2024-06-01T20:00:00'),
         isSubscribed: true,
-        balanceName:'Негры',
+        balanceName:'Негр',
     })
 
     onMounted(()=>{
@@ -107,6 +158,63 @@
     border-radius: 10px;
     padding: 10px;
     width: 100%;
+    &--modules {
+        display: flex;
+        flex-wrap: wrap;
+        &--item {
+            padding: 10px;
+            margin: 5px;
+            border: solid var(--primary-color) thin;
+            border-radius: 10px;
+            background-color: var(--bg-color-secondary);
+            -webkit-box-shadow: 4px 4px 10px 10px rgba(13, 13, 13, 0.2);
+            -moz-box-shadow: 4px 4px 10px 10px rgba(13, 13, 13, 0.2);
+            box-shadow: 4px 4px 10px 10px rgba(13, 13, 13, 0.2);
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            max-width: 250px;
+            transition: 250ms;
+            &--header {
+                display: flex;
+                justify-content: center;
+                color: var(--primary-color);
+                font-size: 20px;
+            }
+            &--description {
+                display: flex;
+                justify-content: center;
+                color: var(--text-color);
+            }
+            &--actives {
+                display: flex;
+                justify-content: center;
+                button {
+                    background: none;
+                    padding: 10px;
+                    margin: 5px;
+                    border-radius: 10px;
+                    border: solid var(--primary-color) thin;
+                    color: var(--primary-color);
+                    transition: 500ms;
+                }
+                :hover {
+                    cursor: pointer;
+                    background-color: var(--primary-color);
+                    color: var(--bg-color-secondary);
+                    transition: 500ms;
+                }
+            }
+            &:hover{
+            transform: scale(1.1);
+            margin:0 10px 0 10px;
+            transition: 250ms;
+
+            }
+        }
+        
+
+    }
 
 }
 </style>
