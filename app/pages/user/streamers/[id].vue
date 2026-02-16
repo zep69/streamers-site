@@ -71,6 +71,7 @@
 
     }
     &--unsubscribed {
+        margin-top: 10px;
         background-color: var(--primary-color); 
         color: white; 
         border: none; 
@@ -84,6 +85,7 @@
         }
     }
     &--subscribed {
+        margin-top: 10px;
         background-color: transparent; 
         color: var(--primary-color); 
         border: solid var(--primary-color) thin; 
@@ -104,6 +106,7 @@
     margin-left: 10px;
     border-radius: 10px;
     padding: 10px;
+    width: 100%;
 
 }
 </style>
