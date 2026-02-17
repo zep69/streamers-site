@@ -20,7 +20,7 @@
                             {{ item.description }}
                         </div>
                         <div class="card-activity--modules--item--actives">
-                            <button>
+                            <button @click="dialog = true">
                                 Взаимодействовать
                             </button>
                         </div>
@@ -29,12 +29,25 @@
                 </div>
             </div>
         </div>
+        <Dialog v-model="dialog">
+            <template #header>
+                <h2>Модуль такой-то</h2>
+            </template>
+            <template #default>
+                <h2>Это вот такой модуль</h2>
+            </template>
+            <template #footer>
+                <h2>Типа футер</h2>
+            </template>
+        </Dialog>
     </div>
 </template>
 
 <script setup lang="ts">
     const route = useRoute()
     const id = ref<string>('')
+
+    const dialog = ref<boolean>(false)
 
     const balance = ref<number>(3122)
 
