@@ -29,17 +29,8 @@
                 </div>
             </div>
         </div>
-        <Dialog v-model="dialog">
-            <template #header>
-                <h2>Модуль такой-то</h2>
-            </template>
-            <template #default>
-                <h2>Это вот такой модуль</h2>
-            </template>
-            <template #footer>
-                <h2>Типа футер</h2>
-            </template>
-        </Dialog>
+        
+        <ModuleStickers v-model="dialog" :price="50"/>
     </div>
 </template>
 
